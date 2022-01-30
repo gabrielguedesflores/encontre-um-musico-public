@@ -26,6 +26,4 @@ app.get("/sair", function(req, res){
   res.sendFile(__dirname + '/views/generic.html');
 });
 
-app.listen(8081, function() {
-  console.log('Servidor rodando...')
-});
+app.listen(process.env.PORT || 3000);
