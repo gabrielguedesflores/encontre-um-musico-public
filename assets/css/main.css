@@ -2277,3 +2277,7 @@ button,
     color: #e0e0e2;
   }
 
+  #post a {
+    text-decoration: none;
+  }
+

@@ -11,7 +11,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/feed", function(req, res){
-  res.sendFile(__dirname + '/views/generic.html');
+  res.sendFile(__dirname + '/views/feed.html');
 });
 
 app.get("/amigos", function(req, res){
