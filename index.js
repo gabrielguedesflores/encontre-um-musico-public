@@ -19,7 +19,7 @@ app.get("/amigos", function(req, res){
 });
 
 app.get("/configuracoes", function(req, res){
-  res.sendFile(__dirname + '/views/generic.html');
+  res.sendFile(__dirname + '/views/elements.html');
 });
 
 app.get("/sair", function(req, res){
