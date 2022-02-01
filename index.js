@@ -26,5 +26,12 @@ app.get("/sair", function(req, res){
   res.sendFile(__dirname + '/views/generic.html');
 });
 
-//app.listen(process.env.PORT || 3000);
-app.listen(8081);
+app.get("/login", function(_, res){
+  res.sendFile(__dirname + '/views/login-register/login.html');
+});
+
+app.get("/cadastro", function(_, res){
+  res.sendFile(__dirname + '/views/login-register/cadastro.html');
+});
+
+app.listen(process.env.PORT || 3000);
