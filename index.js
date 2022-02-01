@@ -34,7 +34,4 @@ app.get("/cadastro", function(_, res){
   res.sendFile(__dirname + '/views/login-register/cadastro.html');
 });
 
-// app.listen(process.env.PORT || 3000);
-app.listen(8081, () => {
- console.log("RUNNING AT 8081")
-});
+app.listen(process.env.PORT || 3000);
