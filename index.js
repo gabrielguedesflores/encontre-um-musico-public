@@ -19,11 +19,12 @@ app.get("/amigos", function(req, res){
 });
 
 app.get("/configuracoes", function(req, res){
-  res.sendFile(__dirname + '/views/generic.html');
+  res.sendFile(__dirname + '/views/elements.html');
 });
 
 app.get("/sair", function(req, res){
   res.sendFile(__dirname + '/views/generic.html');
 });
 
-app.listen(process.env.PORT || 3000);
+//app.listen(process.env.PORT || 3000);
+app.listen(8081);
