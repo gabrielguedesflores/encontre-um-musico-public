@@ -18,11 +18,17 @@
   "homepage": "https://github.com/gabrielguedesflores/encontre-um-musico#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
+    "axios": "^0.25.0",
     "ejs": "^3.1.6",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "glob-parent": "^6.0.2",
+    "negotiator": "^0.6.3",
+    "normalize-path": "^3.0.0",
+    "raw-body": "^2.4.2",
+    "readdirp": "^3.6.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15",
-    "newsapi": "^2.4.1"
+    "newsapi": "^2.4.1",
+    "nodemon": "^2.0.15"
   }
 }

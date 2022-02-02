@@ -1,9 +1,14 @@
-const validateLoginController = (req, res) => {
+const { validateLoginService } = require("../service/validateLogin.services");
+
+const validateLoginController = async (req, res) => {
     const { userName, userPswrd } = req.body;
-    if (userName == 'mateus' && userPswrd == '123456') {
-        
-    } else {
-        
+    const { body } = await validateLoginService(userName, userPswrd);
+    const { user } = body;
+    console.log(user);
+    if(user != ""){
+        res.redirect("/");
+    }else{
+        res.redirect('/login');
     }
 }
 
