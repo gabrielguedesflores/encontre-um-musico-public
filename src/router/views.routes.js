@@ -2,8 +2,9 @@ const express = require("express");
 const viewsRouter = express.Router();
 var path = require('path');
 const { validateLoginController } = require("./../controller/validateLogin.controller");
+const { validateUserAuthentication } = require("../middleware/authentication.middleware");
 
-viewsRouter.get("/", function (_, res) {
+viewsRouter.get("/", validateUserAuthentication, function (_, res) {
   res.sendFile(path.resolve('./views/index.html'));
 });
 
