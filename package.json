@@ -18,6 +18,7 @@
   "homepage": "https://github.com/gabrielguedesflores/encontre-um-musico#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
+    "axios": "^0.25.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "newsapi": "^2.4.1"
