@@ -1,19 +1,19 @@
 $(document).ready(function () {
-    if(createFailLoginElement()){
-        insertFailLoginPopUp();
+    if(verifyLoginUrl()){
+        createFailLoginElement();
         setTimeout(() => {
             window.location.href = "/login";
         }, 3000);
     }
 });
 
-const createFailLoginElement = () => {
-    let urlPath = window.location.href.replace('http://localhost:3000/login/', '');
+const verifyLoginUrl = () => {
+    let urlPath = window.location.href.replace('http://encontre-um-musico.herokuapp.com/login/', '');
     urlPath = urlPath === 'error' ? true : false; 
     return urlPath;
 }
 
-const insertFailLoginPopUp = () => {
+const createFailLoginElement = () => {
     const cont = `{${Toastify({
         text: "Usuário não cadastrado",
         duration: 3000,
