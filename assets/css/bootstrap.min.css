@@ -20,6 +20,11 @@ body{
     color:#e0e0e2;
   }
 
+  .form-signin p a {
+    text-decoration: none; 
+    color:inherit;
+  }
+
   .margin-btn{
     margin-bottom:0.5em;
   }
