@@ -4,12 +4,14 @@ const validateLoginController = async (req, res) => {
     const { userName, userPswrd } = req.body;
     const { body } = await validateLoginService(userName, userPswrd);
     const { user } = body;
-    if(user != ""){
+    if (user != "") {
+        // req.session.isUserLogged = true;
+        // localStorage.setItem('isUserLogged', true);
         res.redirect("/");
-    }else{
-        res.render('/login', {
-            returnResponse: "Usuário não encontrado!"
-        });
+    } else {
+        // req.session.isUserLogged = false;
+        // localStorage.setItem('isUserLogged', false);
+        res.redirect('/login/error');
     }
 }
 

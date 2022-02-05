@@ -4,7 +4,7 @@ var path = require('path');
 const { validateLoginController } = require("./../controller/validateLogin.controller");
 const { validateUserAuthentication } = require("../middleware/authentication.middleware");
 
-viewsRouter.get("/", validateUserAuthentication, function (_, res) {
+viewsRouter.get("/", function (req, res) {
   res.sendFile(path.resolve('./views/index.html'));
 });
 
@@ -24,7 +24,11 @@ viewsRouter.get("/sair", function (_, res) {
   res.sendFile(path.resolve('./views/generic.html'));
 });
 
-viewsRouter.get("/login", function (_, res) {
+viewsRouter.get("/login", function (req, res) {
+  res.sendFile(path.resolve('./views/login-register/login.html'));
+});
+
+viewsRouter.get("/login/error", function (req, res) {
   res.sendFile(path.resolve('./views/login-register/login.html'));
 });
 

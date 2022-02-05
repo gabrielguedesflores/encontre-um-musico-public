@@ -3,7 +3,15 @@ const app = express();
 const PATCH_ENV = '/home/gabrielflores/Documentos/code/encontre-musico/';
 let bodyParser = require('body-parser');
 let path = require('path');
+const session = require("express-session");
 const {viewsRouter} = require('./src/router/views.routes');
+
+app.use(session({
+    secret: 'dalakgajgangapkgnapkhnah',
+    resave: true,
+    saveUninitialized: true,
+    cookie: {}
+}));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/static', express.static('views'));
