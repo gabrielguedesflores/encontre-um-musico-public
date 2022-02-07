@@ -8,9 +8,13 @@ const {viewsRouter} = require('./src/router/views.routes');
 
 app.use(session({
     secret: 'dalakgajgangapkgnapkhnah',
-    resave: true,
-    saveUninitialized: true,
-    cookie: {}
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 900000,
+        sameSite: true,
+        httpOnly: true
+    }
 }));
 
 app.use(bodyParser.urlencoded({ extended: false }));

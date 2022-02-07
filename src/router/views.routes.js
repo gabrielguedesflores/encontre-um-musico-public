@@ -8,19 +8,19 @@ viewsRouter.get("/", function (req, res) {
   res.sendFile(path.resolve('./views/index.html'));
 });
 
-viewsRouter.get("/feed", function (_, res) {
+viewsRouter.get("/feed", validateUserAuthentication, function (_, res) {
   res.sendFile(path.resolve('./views/feed.html'));
 });
 
-viewsRouter.get("/amigos", function (_, res) {
+viewsRouter.get("/amigos", validateUserAuthentication, function (_, res) {
   res.sendFile(path.resolve('./views/amigos.html'));
 });
 
-viewsRouter.get("/configuracoes", function (_, res) {
+viewsRouter.get("/configuracoes", validateUserAuthentication, function (_, res) {
   res.sendFile(path.resolve('./views/generic.html'));
 });
 
-viewsRouter.get("/sair", function (_, res) {
+viewsRouter.get("/sair", validateUserAuthentication, function (_, res) {
   res.sendFile(path.resolve('./views/generic.html'));
 });
 
