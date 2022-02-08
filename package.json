@@ -25,7 +25,8 @@
     "negotiator": "^0.6.3",
     "normalize-path": "^3.0.0",
     "raw-body": "^2.4.2",
-    "readdirp": "^3.6.0"
+    "readdirp": "^3.6.0",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "newsapi": "^2.4.1",
