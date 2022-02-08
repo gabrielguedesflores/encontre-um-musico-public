@@ -1,13 +1,13 @@
 const jwt = require("jsonwebtoken");
-const { dataEncryption, dataCompare } = require("./dataEncryptionManipulator.helper");
+const { bcrptjsEncryption } = require("./dataEncryptionManipulator.helper");
 require("dotenv").config();
 
 const secret = process.env.JWT_SECRET_KEY;
 
 const jwtTokenCreator = async (userSessionId, userID) => {
 
-    const usrSessionId = await dataEncryption(userSessionId);
-    const usrId = await dataEncryption(userID);
+    const usrSessionId = await bcrptjsEncryption(userSessionId);
+    const usrId = await bcrptjsEncryption(userID);
     
     const token = jwt.sign(
         {
