@@ -1,18 +1,24 @@
 const jwt = require("jsonwebtoken");
-const secret = 'gj4CsZHE5TGg68o3j5kkmDvbDb1StE80';
+const { dataEncryption, dataCompare } = require("./dataEncryptionManipulator.helper");
+require("dotenv").config();
 
-const jwtTokenCreator = (userSessionId, userID) => {
+const secret = process.env.JWT_SECRET_KEY;
+
+const jwtTokenCreator = async (userSessionId, userID) => {
+
+    const usrSessionId = await dataEncryption(userSessionId);
+    const usrId = await dataEncryption(userID);
+    
     const token = jwt.sign(
         {
-            sessionId: userSessionId,
-            userId: userID
+            sessionId: usrSessionId,
+            userId: usrId
         },
         secret,
         {
             expiresIn: 900000
         }
     );
-
     return token;
 }
 
