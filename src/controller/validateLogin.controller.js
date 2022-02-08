@@ -15,6 +15,13 @@ const validateLoginController = async (req, res) => {
     }
 }
 
+const logoutController = (_, res) => {
+    res.clearCookie("connect.sid");
+    res.clearCookie("userTokenCookie");
+    res.redirect("/login");
+}
+
 module.exports = {
-    validateLoginController
+    validateLoginController,
+    logoutController
 }

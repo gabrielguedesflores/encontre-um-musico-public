@@ -1,7 +1,7 @@
 const express = require("express");
 const viewsRouter = express.Router();
 var path = require('path');
-const { validateLoginController } = require("./../controller/validateLogin.controller");
+const { validateLoginController, logoutController } = require("./../controller/validateLogin.controller");
 const { validateUserAuthentication } = require("../middleware/authentication.middleware");
 
 viewsRouter.get("/", function (req, res) {
@@ -20,9 +20,7 @@ viewsRouter.get("/configuracoes", validateUserAuthentication, function (_, res) 
   res.sendFile(path.resolve('./views/generic.html'));
 });
 
-viewsRouter.get("/sair", validateUserAuthentication, function (_, res) {
-  res.sendFile(path.resolve('./views/generic.html'));
-});
+viewsRouter.get("/sair", validateUserAuthentication, logoutController);
 
 viewsRouter.get("/login", function (req, res) {
   res.sendFile(path.resolve('./views/login-register/login.html'));
