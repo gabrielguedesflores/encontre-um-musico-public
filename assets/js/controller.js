@@ -27,12 +27,32 @@ const getUserFilterId = async (user_id) => {
   }
 }
 
-const showAllPage = (userData) => {
+const getUserInstrumentBadgesId = async (user_id) => {
+  let urlInstrumentBadges = `https://encontre-um-musico-api.herokuapp.com/api/user/instrument_badges`;
+  try {
+    const { data } = await axios.get(urlInstrumentBadges, {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      }
+    });
+    const result = data.length;
+    console.log(result);
+    return data;
+  } catch (error) {
+    toastr.error("Falha ao buscar os dados do usuário.", "Entre em contato com os Administradores!");
+    return false
+  }
+}
+
+const showAllPage = async (userData) => {
+
   const user_title = `<h1>${userData[0].user_title}</h1>`;
   const user_full_name = `<strong>${userData[0].user_full_name}</strong>`
   const user_adress = `<p>${userData[0].user_city} - ${userData[0].user_state}</p>`;
   const user_bio = `<p>${userData[0].user_bio}</p>`;
   const user_image = `<img src="${userData[0].user_image}" alt="" />`;
+  const instrument_badges = await getUserInstrumentBadgesId(userData);
+
 
   $('#user_title').append(user_title);
   $('#user_full_name').append(user_full_name);
@@ -46,3 +66,4 @@ const showAllPage = (userData) => {
 const hideAllPage = () => {
   $('#wrapper').hide()
 }
+
