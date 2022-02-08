@@ -7,7 +7,7 @@ const validateLoginController = async (req, res) => {
     const { user } = body;
     if (user != "") {
         req.session.isUserLogged = true;
-        const jwtTokenCookie = jwtTokenCreator(req.sessionID ,user[0].user_id);
+        const jwtTokenCookie = await jwtTokenCreator(req.sessionID ,user[0].user_id);
         res.cookie('userTokenCookie', jwtTokenCookie, { maxAge: 900000, httpOnly: true });
         res.redirect("/");
     } else {
