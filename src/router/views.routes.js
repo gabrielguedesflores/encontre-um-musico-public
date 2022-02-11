@@ -3,8 +3,14 @@ const viewsRouter = express.Router();
 var path = require('path');
 const { validateLoginController, logoutController } = require("./../controller/validateLogin.controller");
 const { validateUserAuthentication } = require("../middleware/authentication.middleware");
+const req = require("express/lib/request");
 
-viewsRouter.get("/", function (req, res) {
+viewsRouter.get("/", validateUserAuthentication, function (req, res) {
+  // const { jwtTokenDecodificator } = require("../../src/helper/jwtTokenManipulator.helper");
+  // const userJwtToken = req.headers.cookie.split(";")[0].slice(16);
+  // let { userId } = jwtTokenDecodificator(userJwtToken);
+  // res.send(userId)
+
   res.sendFile(path.resolve('./views/index.html'));
 });
 

@@ -1,6 +1,5 @@
 const { jwtTokenDecodificator } = require("../helper/jwtTokenManipulator.helper");
 const { brcptjsCompare } = require("../helper/dataEncryptionManipulator.helper");
-//ADICIONAR COMPARE DO BCRYPT AQUI PARA VALIDAR TOKEN DE ACESSO
 
 const validateUserAuthentication = (req, res, next) => {
     if (req.headers.cookie) {
@@ -10,10 +9,10 @@ const validateUserAuthentication = (req, res, next) => {
         if (brcptjsCompare(connect_sid,sessionId)) {
             next();
         } else {
-            res.redirect("/");
+            res.redirect("/login/error");
         }
     } else {
-        res.redirect("/");
+        res.redirect("/login/error");
     }
 
 }

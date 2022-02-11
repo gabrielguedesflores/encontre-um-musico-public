@@ -1,6 +1,14 @@
 $(document).ready(function(){
   validateLogin()
+  getUsrCookie();
 });
+
+const getUsrCookie = () => {
+  //let {headers} = await axios.get("http://localhost:3000/");
+  //let header = $.cookie('userTokenCookie');
+  let header = $.cookie('connect.sid');
+  console.log(header)
+}
 
 const validateLogin = async () => { 
   const user_id = 16; //aqui vai vir dinâmico depois

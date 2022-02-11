@@ -14,7 +14,7 @@ const verifyLoginUrl = () => {
 }
 
 const createFailLoginElement = () => {
-    const cont = `{${Toastify({
+    `{${Toastify({
         text: "Usuário não cadastrado",
         duration: 3000,
         gravity: "top",
