@@ -1,13 +1,31 @@
 $(document).ready(function(){
   validateLogin()
-  getUsrCookie();
+  const user = getCookie('userTokenCookie');
+  console.log(parseJwt(getCookie('userTokenCookie')).userId)
 });
 
-const getUsrCookie = () => {
-  //let {headers} = await axios.get("http://localhost:3000/");
-  //let header = $.cookie('userTokenCookie');
-  let header = $.cookie('connect.sid');
-  console.log(header)
+const parseJwt = (token) => {
+  try {
+    return JSON.parse(atob(token.split('.')[1]));
+  } catch (e) {
+    return null;
+  }
+};
+
+function getCookie(cname) {
+  const name = cname + '=';
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+      }
+  }
+  return '';
 }
 
 const validateLogin = async () => { 
@@ -59,7 +77,6 @@ const showAllPage = async (userData) => {
   const user_adress = `<p>${userData[0].user_city} - ${userData[0].user_state}</p>`;
   const user_bio = `<p>${userData[0].user_bio}</p>`;
   const user_image = `<img src="${userData[0].user_image}" alt="" />`;
-  const instrument_badges = await getUserInstrumentBadgesId(userData);
 
 
   $('#user_title').append(user_title);
