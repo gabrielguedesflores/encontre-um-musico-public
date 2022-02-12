@@ -8,7 +8,9 @@ $(document).ready(function () {
 });
 
 const verifyLoginUrl = () => {
-    let urlPath = window.location.href.replace('http://encontre-um-musico.herokuapp.com/login/', '');
+    let urlBrsr = window.location.href;
+    [urlBrsr,] = urlBrsr.split("error");
+    let urlPath = window.location.href.replace(`${urlBrsr}`, '');
     urlPath = urlPath === 'error' ? true : false; 
     return urlPath;
 }
