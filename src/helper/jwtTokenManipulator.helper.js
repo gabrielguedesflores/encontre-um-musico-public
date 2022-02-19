@@ -7,8 +7,9 @@ const secret = process.env.JWT_SECRET_KEY;
 const jwtTokenCreator = async (userSessionId, userID) => {
 
     const usrSessionId = await bcrptjsEncryption(userSessionId);
-    const usrId = await bcrptjsEncryption(userID);
-    
+    //const usrId = await bcrptjsEncryption(userID);
+    const usrId = userID
+
     const token = jwt.sign(
         {
             sessionId: usrSessionId,

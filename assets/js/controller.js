@@ -1,8 +1,9 @@
 $(document).ready(function(){
   validateLogin()
-  const user = getCookie('userTokenCookie');
-  console.log(parseJwt(getCookie('userTokenCookie')).userId)
 });
+
+
+const user = () => {return parseJwt(getCookie('userTokenCookie')).userId;}
 
 const parseJwt = (token) => {
   try {
@@ -29,7 +30,8 @@ function getCookie(cname) {
 }
 
 const validateLogin = async () => { 
-  const user_id = 16; //aqui vai vir dinâmico depois
+  const user_id = user(); 
+  console.log(user_id);
   const userData = await getUserFilterId(user_id)
   if(userData != false){
     showAllPage(userData);
