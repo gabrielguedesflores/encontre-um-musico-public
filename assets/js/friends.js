@@ -33,41 +33,23 @@ const validateLogin = async () => {
   const user_id = user(); 
   console.log(user_id);
   const userData = await getUserFilterId(user_id)
+  const userFriends
   if(userData != false){
     showAllPage(userData);
   }else{
-    hideAllPage();
+    toastr.error("Não possível encontrar seus amigos.")
   }
 }
 
-const getUserFilterId = async (user_id) => {
-  let urlUser = `https://encontre-um-musico-api.herokuapp.com/api/users/${user_id}`;
+const getFriendsOfUser = async (user_id) => {
+  let urlUser = `https://encontre-um-musico-api.herokuapp.com/api/user/friends`;
   try {
-    const { data } = await axios.get(urlUser, {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      }
+    const { data } = await axios.post(urlUser, {
+      user_id: user_id
     });
     return data;
   } catch (error) {
-    toastr.error("Falha ao buscar os dados do usuário.", "Entre em contato com os Administradores!");
-    return false
-  }
-}
-
-const getUserInstrumentBadgesId = async (user_id) => {
-  let urlInstrumentBadges = `https://encontre-um-musico-api.herokuapp.com/api/user/instrument_badges`;
-  try {
-    const { data } = await axios.get(urlInstrumentBadges, {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      }
-    });
-    const result = data.length;
-    console.log(result);
-    return data;
-  } catch (error) {
-    toastr.error("Falha ao buscar os dados do usuário.", "Entre em contato com os Administradores!");
+    toastr.error("Falha ao buscar os amigos do usuário.", "Entre em contato com os Administradores!");
     return false
   }
 }
@@ -79,7 +61,6 @@ const showAllPage = async (userData) => {
   const user_adress = `<p>${userData[0].user_city} - ${userData[0].user_state}</p>`;
   const user_bio = `<p>${userData[0].user_bio}</p>`;
   const user_image = `<img src="${userData[0].user_image}" alt="" />`;
-
 
   $('#user_title').append(user_title);
   $('#user_full_name').append(user_full_name);
