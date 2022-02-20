@@ -42,6 +42,10 @@ viewsRouter.get("/cadastro", function (_, res) {
 
 viewsRouter.post("/validate-login", validateLoginController);
 
+viewsRouter.get("/amigos/:user_id", validateUserAuthentication, function (_, res) {
+  res.sendFile(path.resolve('./views/perfil-amigos.html'));
+});
+
 module.exports = {
   viewsRouter
 };

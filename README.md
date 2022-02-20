@@ -6,7 +6,6 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 This software it's ready for run in the web and mobile.
-AngularJS-powered HTML5 Markdown editor.
 
 # Features
 
@@ -28,7 +27,7 @@ or
 nodemon index.js
 ```
 
-#### For production environments, very attencion in the port app.listen in index.js and the variable url of function verifyLoginUrl in the index.js too. Change URL patch for your place work.
+#### For production environments, very attencion in the port app.listen in index.js and the variable url of function verifyLoginUrl in the js/perfilAmigos.js too. Change URL patch for your place work.
 
 
 # Development
@@ -47,4 +46,4 @@ MIT
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-<img  src="https://raw.githubusercontent.com/gabrielguedesflores/encontre-um-musico/master/images/readme.png">
+<img  src="https://raw.githubusercontent.com/gabrielguedesflores/encontre-um-musico/master/images/readme.png?token=GHSAT0AAAAAABPPHKDYUQDO3WUHB43JTPJ6YQRSMTA">

@@ -64,7 +64,7 @@ const showAllPage = async (userData) => {
         </h3>
         <p>${userData.user_friends[0].user_friends[i].user_bio}</p>
         <ul class="actions">
-          <li><a href="#" class="button">Ver perfil</a></li>
+          <li><a href="/amigos/${userData.user_friends[0].user_friends[i].user_id}" class="button">Ver perfil</a></li>
         </ul>
       </article>
   `;
