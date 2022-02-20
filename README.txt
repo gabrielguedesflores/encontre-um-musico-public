@@ -1,30 +1,49 @@
-Editorial by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# Encontre um Músico
+## Node platform made to find musicians in your region
+
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+This software it's ready for run in the web and mobile.
+AngularJS-powered HTML5 Markdown editor.
+
+# Features
+
+- Express, JWT, bcryptJS
+- Axios, Toasrt, jQuery
+
+# Installation
+
+Encontre um Músico requires [Node.js](https://nodejs.org/) to run.
+
+Install the dependencies and devDependencies and start the server.
+
+```sh
+cd encontre-um-musico
+npm install
+
+node index.js 
+or 
+nodemon index.js
+```
+
+#### For production environments, very attencion in the port app.listen in index.js and the variable url of function verifyLoginUrl in the index.js too. Change URL patch for your place work.
 
 
-Say hello to Editorial, a blog/magazine-ish template built around a toggleable "locking"
-sidebar (scroll down to see what I mean) and an accordion-style menu. Not the usual landing
-page/portfolio affair you'd expect to see at HTML5 UP, but I figured for my 41st (!!!)
-template I'd change it up a little. Enjoy :)
+# Development
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+Want to contribute? Great!
 
-(* = not included)
-
-AJ
-aj@lkn.io | @ajlkn
+Encontre um Músico uses Node for developing.
+Do fork this project and make a change in your file and we check your updates!
 
 
-Credits:
+# License
 
-	Demo Images:
-		Unsplash (unsplash.com)
+MIT
 
-	Icons:
-		Font Awesome (fontawesome.io)
+**Free Software, Hell Yeah!**
 
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+
