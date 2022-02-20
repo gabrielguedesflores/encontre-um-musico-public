@@ -6,7 +6,6 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 This software it's ready for run in the web and mobile.
-AngularJS-powered HTML5 Markdown editor.
 
 # Features
 
