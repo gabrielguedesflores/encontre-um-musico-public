@@ -33,7 +33,7 @@ function getCookie(cname) {
 }
 
 const verifyLoginUrl = () => {
-  let url = window.location.href.replace('https://encontre-um-musico-api.herokuapp.com/amigos/', '');
+  let url = window.location.href.replace('https://encontre-um-musico.herokuapp.com/amigos/', '');
   return url;
 }
 
