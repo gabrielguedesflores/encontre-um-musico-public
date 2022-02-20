@@ -46,4 +46,4 @@ MIT
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-<img  src="https://raw.githubusercontent.com/gabrielguedesflores/encontre-um-musico/master/images/readme.png?token=GHSAT0AAAAAABPPHKDYUQDO3WUHB43JTPJ6YQRSMTA">
+<img  src="https://raw.githubusercontent.com/gabrielguedesflores/encontre-um-musico/master/images/readme.png?token=GHSAT0AAAAAABPPHKDY32JULVLPGJX2IIVAYQRSU6Q">
