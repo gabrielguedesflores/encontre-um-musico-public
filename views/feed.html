@@ -7,6 +7,7 @@
 		<link rel="icon" type="favicon" sizes="500x500" href="/favicon.png"/>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
@@ -20,6 +21,47 @@
 							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 						</ul>
 					</header>
+					<br>
+					<button type="button" class="button big" data-bs-toggle="modal" data-bs-target="#exampleModal">Criar um Post</button>
+
+					<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Faça um post</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="mb-3">
+											<label for="message-text" class="col-form-label">Mensagem</label>
+											<textarea class="form-control" id="message-text"></textarea>
+										</div>
+
+										<div class="mb-3">
+											<label for="recipient-name" class="col-form-label">Instrumentos</label>
+
+											<div class="form-check form-switch">
+												<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+												<label class="form-check-label" for="flexSwitchCheckDefault">Guitarra</label>
+											</div>
+											<div class="form-check form-switch">
+												<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+												<label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+											</div>
+
+										</div>
+									</form>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-primary">Send message</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
 
 					<section style="padding-top: 10px; padding-bottom: 500px;" id="post">
 
@@ -192,6 +234,9 @@
 		<script src="/js/breakpoints.min.js"></script>
 		<script src="/js/util.js"></script>
 		<script src="/js/main.js"></script>
+		<script src="/js/feed.js"></script>
+		<SCRIPT src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></SCRIPT>
+		<SCRIPT src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></SCRIPT>
 
 	</body>
 </html>
