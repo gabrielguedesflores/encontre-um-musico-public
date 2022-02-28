@@ -35,7 +35,7 @@ function getCookie(cname) {
 
 const verifyLoginUrl = () => {
   //let url = window.location.href.replace('https://encontre-um-musico.herokuapp.com/amigos/', ''); 
-  let url = window.location.href.replace(URL_PATH + '/amigos/', '');
+  let url = window.location.href.replace(URL_PATH + '/navegar/', '');
   return url;
 }
 
