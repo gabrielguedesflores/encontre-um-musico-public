@@ -55,18 +55,6 @@ const getUserFilterId = async (user_id) => {
   }
 }
 
-const getFriendsOfUser = async (user_id) => {
-  let urlUser = `https://encontre-um-musico-api.herokuapp.com/api/user/friends`;
-  try {
-    const { data } = await axios.post(urlUser, {
-      user_id: user_id
-    });
-    return data;
-  } catch (error) {
-    toastr.error("Falha ao buscar os amigos do usuário.", "Entre em contato com os Administradores!");
-    return false
-  }
-}
 
 const showAllPage = async (userData) => {
   const user_full_name = `<strong>${userData[0].user_full_name}</strong>`;
@@ -76,6 +64,7 @@ const showAllPage = async (userData) => {
   $("input[name='user_state']").val(userData[0].user_state);
   $("input[name='user_city']").val(userData[0].user_city);
   $("input[name='user_title']").val(userData[0].user_title);
+  //$('#instruments_badges').append(userData[0].instrument_badges_id)
   $("textarea[name='user_bio']").val(userData[0].user_bio);
 
   $('#wrapper').show()
