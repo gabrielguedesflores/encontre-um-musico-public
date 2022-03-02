@@ -49,20 +49,8 @@ viewsRouter.get("/amigos/:user_id", validateUserAuthentication, function (_, res
 
 /* MENU DE NAVEGAÇÃO DE INSTRUMENTOS */
 
-viewsRouter.get("/navegar/Baixo", validateUserAuthentication, function (_, res) {
-  res.sendFile(path.resolve('./views/explorer/baixistas.html'));
-});
-
-viewsRouter.get("/navegar/Bateria", validateUserAuthentication, function (_, res) {
-  res.sendFile(path.resolve('./views/explorer/bateristas.html'));
-});
-
-viewsRouter.get("/navegar/Guitarra", validateUserAuthentication, function (_, res) {
-  res.sendFile(path.resolve('./views/explorer/guitarristas.html'));
-});
-
-viewsRouter.get("/navegar/Voz", validateUserAuthentication, function (_, res) {
-  res.sendFile(path.resolve('./views/explorer/vocais.html'));
+viewsRouter.get("/navegar/:search", validateUserAuthentication, function (_, res) {
+  res.sendFile(path.resolve('./views/explorer/search.html'));
 });
 
 /*   */
