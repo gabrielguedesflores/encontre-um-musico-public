@@ -4,8 +4,8 @@ $(document).ready(function(){
   validateLogin(user_id, userSearch_key)
 });
 
-//const URL_PATH = 'http://localhost:3000';
-const URL_PATH = 'https://encontre-um-musico.herokuapp.com';
+const URL_PATH = 'http://localhost:3000';
+//const URL_PATH = 'https://encontre-um-musico.herokuapp.com';
 
 const user = () => {return parseJwt(getCookie('userTokenCookie')).userId;}
 

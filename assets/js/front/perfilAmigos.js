@@ -4,8 +4,8 @@ $(document).ready(function(){
   validateLogin(user_id, userFriend_id)
 });
 
-//const URL_PATH = 'http://localhost:3000';
-const URL_PATH = 'https://encontre-um-musico.herokuapp.com';
+const URL_PATH = 'http://localhost:3000';
+//const URL_PATH = 'https://encontre-um-musico.herokuapp.com';
 
 const user = () => {return parseJwt(getCookie('userTokenCookie')).userId;}
 
@@ -34,7 +34,6 @@ function getCookie(cname) {
 }
 
 const verifyLoginUrl = () => {
-  //let url = window.location.href.replace('https://encontre-um-musico.herokuapp.com/amigos/', ''); 
   let url = window.location.href.replace(URL_PATH + '/amigos/', '');
   return url;
 }
