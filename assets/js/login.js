@@ -23,7 +23,7 @@ const createFailLoginElement = () => {
         position: "center", 
         stopOnFocus: true,
         style: {
-          background: "linear-gradient(to right, #FF6347, #FF0000)",
+            background: "linear-gradient(to right, #FF6347, #FF0000)",
         }
       }).showToast()}`;
 }

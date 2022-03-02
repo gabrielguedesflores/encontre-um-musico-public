@@ -1,11 +1,7 @@
 $(document).ready(function(){
-  const userFriend_id = verifyLoginUrl();
-  const user_id = user(); 
-  validateLogin(user_id, userFriend_id)
+  validateLogin()
 });
 
-//const URL_PATH = 'http://localhost:3000';
-const URL_PATH = 'https://encontre-um-musico.herokuapp.com';
 
 const user = () => {return parseJwt(getCookie('userTokenCookie')).userId;}
 
@@ -33,22 +29,16 @@ function getCookie(cname) {
   return '';
 }
 
-const verifyLoginUrl = () => {
-  //let url = window.location.href.replace('https://encontre-um-musico.herokuapp.com/amigos/', ''); 
-  let url = window.location.href.replace(URL_PATH + '/amigos/', '');
-  return url;
-}
-
-const validateLogin = async (user_id, userFriend_id) => { 
+const validateLogin = async () => { 
+  const user_id = user(); 
+  console.log(user_id);
   const userData = await getUserFilterId(user_id)
-  const userFriendId = await getUserFilterId(userFriend_id)
-  if(userFriendId != false){
-    showAllPage(userFriendId, userData);
+  if(userData != false){
+    showAllPage(userData);
   }else{
     hideAllPage();
   }
 }
-
 
 const getUserFilterId = async (user_id) => {
   let urlUser = `https://encontre-um-musico-api.herokuapp.com/api/users/${user_id}`;
@@ -65,21 +55,28 @@ const getUserFilterId = async (user_id) => {
   }
 }
 
-const showAllPage = async (userFriendId, userData) => {
+const getFriendsOfUser = async (user_id) => {
+  let urlUser = `https://encontre-um-musico-api.herokuapp.com/api/user/friends`;
+  try {
+    const { data } = await axios.post(urlUser, {
+      user_id: user_id
+    });
+    return data;
+  } catch (error) {
+    toastr.error("Falha ao buscar os amigos do usuário.", "Entre em contato com os Administradores!");
+    return false
+  }
+}
 
-  const user_full_name = `<strong>${userData[0].user_full_name}</strong>`
-
-  const user_title = `<h1>${userFriendId[0].user_title}</h1>`;
-  const user_adress = `<p>${userFriendId[0].user_city} - ${userFriendId[0].user_state}</p>`;
-  const user_bio = `<p>${userFriendId[0].user_bio}</p>`;
-  const user_image = `<img src="${userFriendId[0].user_image}" alt="" />`;
-
-  $('#user_title').append(user_title);
+const showAllPage = async (userData) => {
+  const user_full_name = `<strong>${userData[0].user_full_name}</strong>`;
   $('#user_full_name').append(user_full_name);
-  $('#user_adress').append(user_adress);
-  $('#user_bio').append(user_bio);
-  $('#user_image').append(user_image);
-  $('#user_badges').append(userFriendId[0].instrument_badges_id);
+  $("input[name='user_full_name']").val(userData[0].user_full_name);
+  $("input[name='user_email']").val(userData[0].user_email);
+  $("input[name='user_state']").val(userData[0].user_state);
+  $("input[name='user_city']").val(userData[0].user_city);
+  $("input[name='user_title']").val(userData[0].user_title);
+  $("textarea[name='user_bio']").val(userData[0].user_bio);
 
   $('#wrapper').show()
 }
@@ -87,6 +84,4 @@ const showAllPage = async (userFriendId, userData) => {
 const hideAllPage = () => {
   $('#wrapper').hide()
 }
-
-
 

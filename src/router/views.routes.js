@@ -23,7 +23,7 @@ viewsRouter.get("/amigos", validateUserAuthentication, function (_, res) {
 });
 
 viewsRouter.get("/configuracoes", validateUserAuthentication, function (_, res) {
-  res.sendFile(path.resolve('./views/generic.html'));
+  res.sendFile(path.resolve('./views/config.html'));
 });
 
 viewsRouter.get("/sair", validateUserAuthentication, logoutController);
