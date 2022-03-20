@@ -1,23 +1,8 @@
 $(document).ready(function(){
   validateLogin()
   $('#sectionAlterarSenha').hide()
-
-
-  $('#seu-perfil').click(element => {
-    configComponents(element)
-  })
-
-  $('#alterar-senha').click(element => {
-    configComponents(element)
-  })
-
-  $('#notificacoes').click(element => {
-    configComponents(element)
-  })
-
-  $('#privacidade').click(element => {
-    configComponents(element)
-  })
+  $('.botoesMobile').hide()
+  handlers()
   
 });
 
@@ -114,8 +99,27 @@ const getUserFilterId = async (user_id) => {
   }
 }
 
+const isMobile = () => {
+  if (screen.width < 640 || screen.height < 480) {
+      // sirva a versão pra celular
+      return 'Mobile'
+  } else if (screen.width < 1024 || screen.height < 768) {
+      // talvez seja uma boa usar versão pra tablet
+      return 'Tablet'
+  } else {
+      // sirva a versão normal
+      return 'Web'
+  }
+}
 
 const showAllPage = async (userData) => {
+
+  if(isMobile() === 'Mobile'){
+    $('#elementos').attr('style', 'margin-top: 150px;')
+    $('.botoesMobile').show()
+    $('.botoesWeb').hide()
+  }
+
   const user_full_name = `<strong>${userData[0].user_full_name}</strong>`;
   $('#user_full_name').append(user_full_name);
   $("input[name='user_full_name']").val(userData[0].user_full_name);
@@ -131,5 +135,21 @@ const showAllPage = async (userData) => {
 
 const hideAllPage = () => {
   $('#wrapper').hide()
+}
+
+const handlerMenuMobile = () => {
+  console.log('handlerMenuMobile')
+}
+
+const handlers = () => {
+  $('#seu-perfil').click(element => { configComponents(element) })
+
+  $('#alterar-senha').click(element => { configComponents(element) })
+
+  $('#notificacoes').click(element => { configComponents(element) })
+
+  $('#privacidade').click(element => { configComponents(element) })
+  
+  $('#selectMenu').on('change', handlerMenuMobile())
 }
 

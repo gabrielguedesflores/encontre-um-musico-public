@@ -68,14 +68,31 @@ const getFriendsOfUser = async (user_id) => {
   }
 }
 
+const isMobile = () => {
+  if (screen.width < 640 || screen.height < 480) {
+      // sirva a versão pra celular
+      return 'Mobile'
+  } else if (screen.width < 1024 || screen.height < 768) {
+      // talvez seja uma boa usar versão pra tablet
+      return 'Tablet'
+  } else {
+      // sirva a versão normal
+      return 'Web'
+  }
+}
+
 const showAllPage = async (userData) => {
+
+  if(isMobile() === 'Mobile'){
+    $('#elementos').attr('style', 'margin-top: 150px;')
+  }
 
   const user_title = `<h1>${userData[0].user_title}</h1>`;
   const user_full_name = `<strong>${userData[0].user_full_name}</strong>`
   const user_adress = `<p>${userData[0].user_city} - ${userData[0].user_state}</p>`;
   const user_bio = `<p>${userData[0].user_bio}</p>`;
   const user_image = `<img src="${userData[0].user_image}" alt="" />`;
-
+  
   $('#user_title').append(user_title);
   $('#user_badges').append(userData[0].instrument_badges_id);
   $('#user_full_name').append(user_full_name);
