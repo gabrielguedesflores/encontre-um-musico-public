@@ -1,7 +1,66 @@
 $(document).ready(function(){
   validateLogin()
+  $('#sectionAlterarSenha').hide()
+
+
+  $('#seu-perfil').click(element => {
+    configComponents(element)
+  })
+
+  $('#alterar-senha').click(element => {
+    configComponents(element)
+  })
+
+  $('#notificacoes').click(element => {
+    configComponents(element)
+  })
+
+  $('#privacidade').click(element => {
+    configComponents(element)
+  })
+  
 });
 
+const configComponents = (element) => {  
+  estilizaBtnAtivo(element)
+  switch (element.target.id) {
+    case 'seu-perfil':
+      $('#sectionSeuPerfil').show()
+
+      $('#sectionAlterarSenha').hide()
+      $('#sectionNotificacoes').hide()
+      $('#sectionPrivacidade').hide()
+      break;
+    case 'alterar-senha':
+      $('#sectionAlterarSenha').show()
+
+      $('#sectionSeuPerfil').hide()
+      $('#sectionNotificacoes').hide()
+      $('#sectionPrivacidade').hide()
+      break;
+    case 'notificacoes':
+      $('#sectionSeuPerfil').hide()
+      $('#sectionAlterarSenha').hide()
+      $('#sectionPrivacidade').hide()
+
+      $('#sectionNotificacoes').show()
+      break;
+      case 'privacidade':
+        $('#sectionSeuPerfil').hide()
+        $('#sectionAlterarSenha').hide()
+        $('#sectionNotificacoes').hide()
+
+        $('#sectionPrivacidade').show()
+        break;
+  }
+}
+
+const estilizaBtnAtivo = (element) => {
+  for (let i = 0; i < $('#banner').find('button').length; i++) {
+    $('#banner').find('button').eq(i).removeClass('button primary small').addClass('button small')
+  }
+  element.target.className = 'button primary small'
+}
 
 const user = () => {return parseJwt(getCookie('userTokenCookie')).userId;}
 
