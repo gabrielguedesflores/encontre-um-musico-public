@@ -137,8 +137,39 @@ const hideAllPage = () => {
   $('#wrapper').hide()
 }
 
-const handlerMenuMobile = () => {
+const handlerMenuMobile = (element) => {
   console.log('handlerMenuMobile')
+  switch (element.target.value) {
+    case 'seu-perfil':
+      $('#sectionSeuPerfil').show()
+
+      $('#sectionAlterarSenha').hide()
+      $('#sectionNotificacoes').hide()
+      $('#sectionPrivacidade').hide()
+      break;
+    case 'alterar-senha':
+      $('#sectionAlterarSenha').show()
+
+      $('#sectionSeuPerfil').hide()
+      $('#sectionNotificacoes').hide()
+      $('#sectionPrivacidade').hide()
+      break;
+    case 'notificacoes':
+      $('#sectionSeuPerfil').hide()
+      $('#sectionAlterarSenha').hide()
+      $('#sectionPrivacidade').hide()
+
+      $('#sectionNotificacoes').show()
+      break;
+      case 'privacidade':
+        $('#sectionSeuPerfil').hide()
+        $('#sectionAlterarSenha').hide()
+        $('#sectionNotificacoes').hide()
+
+        $('#sectionPrivacidade').show()
+        break;
+  }
+
 }
 
 const handlers = () => {
@@ -150,6 +181,6 @@ const handlers = () => {
 
   $('#privacidade').click(element => { configComponents(element) })
   
-  $('#selectMenu').on('change', handlerMenuMobile())
+  $('#selectMenu').change(element => { handlerMenuMobile(element) })
 }
 
